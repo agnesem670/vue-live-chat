@@ -14,10 +14,10 @@ const projectFirestore = getFirestore()
 const auth = getAuth()
 
 //collection ref
-const colRef = collection(projectFirestore, 'posts')
+/* const colRef = collection(projectFirestore, 'posts') */
 
 //query with timestamp
-const q = query(colRef, orderBy('createdAt', 'asc'), limit(10))
+/* const q = query(colRef, orderBy('createdAt', 'asc'), limit(10)) */
 
 
-export { colRef, auth }
+export { auth }
