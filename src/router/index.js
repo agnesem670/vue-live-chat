@@ -1,6 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { auth } from '../firebase/config'
 import WelcomeView from '../views/WelcomeView.vue'
 import ChatroomView from '../views/ChatroomView.vue'
+
+//auth guard
+const requireAuth = (to, from, next) => {
+  let user = auth.currentUser
+  console.log(user)
+  if(!user) {
+    next({name: 'welcome'})
+  }else{
+    next()
+  }
+}
 
 const routes = [
   {
@@ -11,7 +23,8 @@ const routes = [
   {
     path: '/chatroom',
     name: 'chatroom',
-    component: ChatroomView
+    component: ChatroomView,
+    beforeEnter: requireAuth
   }
 ]
 

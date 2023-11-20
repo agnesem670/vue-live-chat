@@ -9,7 +9,7 @@ onAuthStateChanged(auth, (_user) => {
     user.value = _user
 })
 
-const getUser= () => {
+const getUser = () => {
     return { user }
 }
 
