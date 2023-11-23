@@ -13,11 +13,7 @@ const app = initializeApp(firebaseConfig)
 const projectFirestore = getFirestore()
 const auth = getAuth()
 
-//collection ref
-/* const colRef = collection(projectFirestore, 'posts') */
-
 //query with timestamp
 /* const q = query(colRef, orderBy('createdAt', 'asc'), limit(10)) */
 
-
-export { auth }
+export { auth, projectFirestore }
