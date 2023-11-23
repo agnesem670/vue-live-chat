@@ -6,9 +6,17 @@ import ChatroomView from '../views/ChatroomView.vue'
 //auth guard
 const requireAuth = (to, from, next) => {
   let user = auth.currentUser
-  console.log(user)
   if(!user) {
     next({name: 'welcome'})
+  }else{
+    next()
+  }
+}
+
+const requireNoAuth = (to, from, next) => {
+  let user = auth.currentUser
+  if(user) {
+    next({name: 'chatroom'})
   }else{
     next()
   }
@@ -18,7 +26,8 @@ const routes = [
   {
     path: '/',
     name: 'welcome',
-    component: WelcomeView
+    component: WelcomeView,
+    beforeEnter: requireNoAuth
   },
   {
     path: '/chatroom',
