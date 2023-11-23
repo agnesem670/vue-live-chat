@@ -7,7 +7,7 @@ const getCollection = (colName) => {
     const error = ref(null)
 
     let colRef = collection(projectFirestore, colName)
-    const q = query(colRef, orderBy('createdAt', 'asc'), limit(10))
+    const q = query(colRef, orderBy('createdAt', 'asc'))
 
     onSnapshot(q, (snap) => {
         let results = []
